@@ -1,0 +1,115 @@
+<div class="row justify-content-center py-3">
+    <div class="col-12 col-md-10">
+        <form (ngSubmit)="salvarTriagem()" class="shadow-lg p-3 bg-white rounded">
+            <h4 class="mb-3 text-success text-center">🩺 Cadastro de Triagem</h4>
+
+            <input type="hidden" [(ngModel)]="triagem.atendimentoId" [value]="atendimento.id" name="atendimentoId">
+
+            <!-- Informações do Paciente -->
+            <div class="col-12 mb-2">
+                <div class="card border-0 shadow-sm p-3 bg-light rounded-3">
+                    <h5 class="fw-bold mb-3">
+                        <i class="fa-solid fa-circle-info me-2"></i> Dados do Paciente
+                    </h5>
+
+                    <div class="row g-3">
+                        <!-- Número da chamada -->
+                        <div class="col-12 col-md-4">
+                            <label class="form-label fw-semibold"><i class="bi bi-tag"></i> Número da Chamada</label>
+                            <input type="text" class="form-control rounded-3" [value]="atendimento.numeroSequencial"
+                                disabled>
+                        </div>
+
+                        <!-- Nome -->
+                        <div class="col-12 col-md-4">
+                            <label class="form-label fw-semibold"><i class="bi bi-person"></i> Nome</label>
+                            <input type="text" class="form-control rounded-3"
+                                [value]="atendimento.paciente?.nome || 'N/A'" disabled>
+                        </div>
+
+                        <!-- Telefone -->
+                        <div class="col-12 col-md-4">
+                            <label class="form-label fw-semibold"><i class="bi bi-telephone"></i> Telefone</label>
+                            <input type="text" class="form-control rounded-3"
+                                [value]="atendimento.paciente?.telefone || 'N/A'" disabled>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sinais Vitais -->
+            <div class="col-12 mb-2">
+                <div class="card border-0 shadow-sm p-3 rounded-3">
+                    <h5 class="fw-bold mb-3">
+                        <i class="fa-solid fa-heart-pulse me-2"></i> Sinais Vitais
+                    </h5>
+
+                    <div class="row g-3">
+                        <!-- Pressão arterial -->
+                        <div class="col-12 col-md-3">
+                            <label class="form-label fw-semibold">Pressão Arterial</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control rounded-3" name="pressaoArterial"
+                                    [(ngModel)]="triagem.pressaoArterial" required>
+                                <span class="input-group-text">mmHg</span>
+                            </div>
+                        </div>
+
+                        <!-- Peso -->
+                        <div class="col-12 col-md-3">
+                            <label class="form-label fw-semibold">Peso</label>
+                            <div class="input-group">
+                                <input type="number" step="0.1" class="form-control rounded-3"
+                                    [(ngModel)]="triagem.peso" name="peso" required>
+                                <span class="input-group-text">kg</span>
+                            </div>
+                        </div>
+
+                        <!-- Altura -->
+                        <div class="col-12 col-md-3">
+                            <label class="form-label fw-semibold">Altura</label>
+                            <div class="input-group">
+                                <input type="number" step="0.1" class="form-control rounded-3"
+                                    [(ngModel)]="triagem.altura" name="altura" required>
+                                <span class="input-group-text">cm</span>
+                            </div>
+                        </div>
+
+                        <!-- Especialidade -->
+                        <div class="col-12 col-md-3">
+                            <label class="form-label fw-semibold">Especialidade</label>
+                            <div class="mb-3">
+                                <select *ngIf="especialidades.length > 0" class="form-select rounded-3"
+                                    [(ngModel)]="triagem.especialidadeId" name="especialidadeId" required>
+                                    <option *ngFor="let especialidade of especialidades" [ngValue]="especialidade.id">
+                                        {{ especialidade.nome }}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sintomas -->
+            <div class="col-12 mb-3">
+                <div class="card border-0 shadow-sm p-3 rounded-3">
+                    <h5 class="fw-bold mb-3">
+                        <i class="fa-solid fa-file-medical me-2"></i> Sintomas
+                    </h5>
+                    <label class="form-label fw-semibold">Descrição</label>
+                    <textarea class="form-control rounded-3" rows="3" [(ngModel)]="triagem.sintomas" name="sintomas"
+                        placeholder="Descreva os sintomas..." required></textarea>
+                </div>
+            </div>
+
+            <!-- Botões de ação -->
+            <div class="d-flex justify-content-center gap-3">
+                <button type="submit" class="btn btn-success px-4 py-2 rounded-pill fw-bold">
+                    <i class="bi bi-save"></i> Salvar
+                </button>
+                <a class="btn btn-outline-dark px-4 py-2 rounded-pill" [routerLink]="['/triagem/fila']">Voltar</a>
+            </div>
+        </form>
+    </div>
+</div>

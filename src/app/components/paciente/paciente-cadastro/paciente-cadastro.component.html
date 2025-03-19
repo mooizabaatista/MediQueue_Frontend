@@ -1,0 +1,61 @@
+<div class="row justify-content-center">
+    <div class="col-12 col-md-10 col-lg-8">
+
+        <!-- Formulário de cadastro de paciente -->
+        <form (ngSubmit)="cadastrarPaciente()" #pacienteForm="ngForm" class="shadow-lg p-4 bg-white rounded">
+            <h3 class="mb-3 mb-md-5 text-success text-center">Cadastro de Paciente</h3>
+
+            <div class="row g-3">
+
+                <!-- Nome -->
+                <div class="col-12 col-md-8">
+                    <div class="form-group">
+                        <label for="nome" class="form-label fw-semibold">Nome</label>
+                        <input type="text" id="nome" class="form-control rounded-3" [(ngModel)]="paciente.nome"
+                            name="nome" required>
+                    </div>
+                </div>
+
+                <!-- Telefone -->
+                <div class="col-12 col-md-4">
+                    <div class="form-group">
+                        <label for="telefone" class="form-label fw-semibold">Telefone</label>
+                        <input type="text" id="telefone" class="form-control rounded-3 telefone"
+                            [(ngModel)]="paciente.telefone" name="telefone" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-3 mt-2">
+
+                <!-- Sexo -->
+                <div class="col-12 col-md-3">
+                    <div class="form-group">
+                        <label for="sexo" class="form-label fw-semibold">Sexo</label>
+                        <select id="sexo" class="form-select rounded-3" [(ngModel)]="paciente.sexo" name="sexo"
+                            required>
+                            <option value="Masculino">Masculino</option>
+                            <option value="Feminino">Feminino</option>
+                            <option value="Outro">Outro</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div class="col-12 col-md-9">
+                    <div class="form-group">
+                        <label for="email" class="form-label fw-semibold">Email</label>
+                        <input type="email" id="email" class="form-control rounded-3" [(ngModel)]="paciente.email"
+                            name="email" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botões de ação -->
+            <div class="d-flex justify-content-center gap-3 mt-4">
+                <button type="submit" class="btn btn-success px-4 py-2 rounded-pill">Cadastrar</button>
+                <a class="btn btn-outline-dark px-4 py-2 rounded-pill" [routerLink]="['']">Voltar</a>
+            </div>
+        </form>
+    </div>
+</div>

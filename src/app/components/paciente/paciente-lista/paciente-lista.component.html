@@ -1,0 +1,46 @@
+<div class="card mb-4 shadow-lg rounded">
+
+    <!-- Cadastrar paciente -->
+    <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
+        <h4 class="mb-0">Lista de Pacientes</h4>
+        <a class="btn btn-light fw-bold" [routerLink]="['/pacientes/cadastro']">Cadastrar Paciente</a>
+    </div>
+</div>
+
+<div class="row">
+
+    <!-- Lista de pacientes -->
+    <div class="col-12">
+        <div class="table-responsive">
+            <table class="table table-hover table-bordered text-center align-middle">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Telefone</th>
+                        <th>Sexo</th>
+                        <th>Email</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let paciente of pacientes">
+                        <td>{{ paciente.nome }}</td>
+                        <td>{{ paciente.telefone }}</td>
+                        <td>{{ paciente.sexo }}</td>
+                        <td>{{ paciente.email }}</td>
+
+                        <!-- Botões de ação -->
+                        <td class="d-flex justify-content-center gap-2">
+                            <a class="btn btn-success btn-sm px-3"
+                                [routerLink]="['/pacientes/atualizacao/'+ paciente.id]"> <i class="fa-solid fa-pen"></i>
+                            </a>
+                            <a class="btn btn-danger btn-sm px-3" (click)="deletar(paciente.id)">
+                                <i class="fa-solid fa-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

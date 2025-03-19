@@ -1,27 +1,38 @@
-# MediqueueApp
+# MediQueue Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.
+Bem-vindo ao repositório do **MediQueue Frontend**! 🎨🚀
 
-## Development server
+## 📌 Sobre o Projeto
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+O **MediQueue** é um sistema desenvolvido para otimizar o fluxo de atendimento. Permitindo um gerenciamento eficiente de pacientes e triagem.
 
-## Code scaffolding
+Este repositório contém a interface do usuário do sistema, desenvolvida em **Angular 16**, que consome a API do **MediQueue Backend**.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## 🛠 Tecnologias Utilizadas
 
-## Build
+- Angular 16
+- TypeScript
+- Angular Router
+- Bootstrap 5
+- RxJS
+- HTTP Client (para consumo de API)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## 🚀 Configuração do Projeto
 
-## Running unit tests
+### 1️⃣ Clonando o Repositório
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```sh
+git clone https://github.com/mooizabaatista/MediQueue_Frontend.git
+cd MediQueue_Frontend
+```
 
-## Running end-to-end tests
+###  2️⃣ Instalar Dependências
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```sh
+npm install
+```
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### 3️⃣ Rodar o projeto
+```
+ng serve
+```
